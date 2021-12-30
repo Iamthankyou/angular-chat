@@ -1,0 +1,126 @@
+@import "./variables.scss";
+@import "~bootstrap/scss/bootstrap.scss";
+
+body {
+	overflow-x: hidden;
+  //background-color: $primary;
+}
+
+.no-padding {
+	padding: 0px !important;
+}
+
+.no-display {
+	display: none;
+}
+
+@for $i from 1 through 20 {
+	.mw-#{$i * 5} {
+		max-width: $i * 5%;
+	}
+}
+
+.full-height {
+	height: 100vh;
+}
+
+.ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#search-parent {
+	position: relative;
+}
+
+#search-clear {
+	position: absolute;
+	right: 2.1em;
+	top: 1.2em;
+}
+
+#search-clear:hover {
+	cursor: pointer;
+}
+
+// Header
+.conversation {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.channels-title{
+  margin-left:15px;
+  margin-top:10px;
+  color:white;
+}
+
+.direct-title{
+  margin-left:15px;
+
+  color:white;
+}
+
+i.search-mini-icon {
+  color: white;
+  margin-right: 10px;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.user-list{
+  display: flex;
+  justify-content: center;
+}
+
+
+.online-user-list, ul.online-user-list-avatars {
+  display: flex;
+}
+
+.online-users-number{
+  align-self: center;
+}
+
+.online-user-list {
+  flex: 1 0 auto;
+  align-items: center;
+  margin:0;
+  height:65px;
+  background-color: darken(#0277bd, 3%) ;
+}
+
+.back{
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.online-user-list ul {
+  flex: 1;
+  flex-direction: row;
+  overflow-x:auto;
+  flex-wrap: nowrap;
+  margin:0;
+}
+
+ul.online-user-list-avatars li{
+  display: inline-block;
+}
+
+.online-user-list img{
+  margin:4px;
+  width:50px;
+  margin-right: 10px
+}
+
+.online-users-number{
+  color:white;
+  margin-left:10px;
+  margin-right:10px;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

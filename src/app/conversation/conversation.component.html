@@ -1,0 +1,40 @@
+<div class="online-user-list sticky-top">
+<a *ngIf="selection.activeConvo !== null" (click)="deselect()" class="material-icons align-middle back">arrow_back</a>
+<div *ngIf="selection.activeConvo !== null" (click)="deselect()" class="row">
+  <div class="online-users-number valign-wrapper">
+    <span class="valign"><i class="tiny material-icons">group</i> {{member}} online </span>
+  </div>
+  <ul class="online-user-list-avatars ">
+    <img *ngFor="let mem of listMember"
+      src="https://thumbs.dreamstime.com/b/male-avatar-icon-flat-style-male-user-icon-cartoon-man-avatar-hipster-vector-stock-91462914.jpg"
+      alt="This is avatar" class="rounded-circle" width="50px">
+  </ul>
+  <button *ngIf="title==='Group Chat'" type="button" class="btn btn-danger" (click)="leaveGroup()">Leave Group</button>
+</div>
+</div>
+<!--<div  class="online-user-list">-->
+<!--  <div class="online-users-number valign-wrapper">-->
+<!--    <span class="valign"><i class="tiny material-icons">group</i> 3 online </span>-->
+<!--  </div>-->
+<!--  <ul class="online-user-list-avatars">-->
+<!--    &lt;!&ndash;            <li ng-repeat="user in users track by user.uuid">&ndash;&gt;-->
+<!--    &lt;!&ndash;              <user-avatar uuid="{{user.uuid}}"></user-avatar>&ndash;&gt;-->
+<!--    <img-->
+<!--      src="https://thumbs.dreamstime.com/b/male-avatar-icon-flat-style-male-user-icon-cartoon-man-avatar-hipster-vector-stock-91462914.jpg"-->
+<!--      alt="This is avatar" class="rounded-circle" width="50px">-->
+<!--    <img-->
+<!--      src="https://thumbs.dreamstime.com/b/male-avatar-icon-flat-style-male-user-icon-cartoon-man-avatar-hipster-vector-stock-91462914.jpg"-->
+<!--      alt="This is avatar" class="rounded-circle" width="50px">-->
+<!--    <img-->
+<!--      src="https://thumbs.dreamstime.com/b/male-avatar-icon-flat-style-male-user-icon-cartoon-man-avatar-hipster-vector-stock-91462914.jpg"-->
+<!--      alt="This is avatar" class="rounded-circle" width="50px">-->
+<!--    &lt;!&ndash;            </li>&ndash;&gt;-->
+<!--  </ul>-->
+<!--</div>-->
+<!--			<div class="navbar-brand col text-center"><i *ngIf="header.icon" class="material-icons text-primary align-middle">{{ header.icon }}</i>&nbsp;{{ header.title }}</div>-->
+<div *ngFor="let message of request.getConversationFromRequest(selection.activeConvo)"
+     (click)="selection.setActiveMessage(message.id)">
+	<app-message [message]="message" [isActive]="message.id === selection.activeMessage"></app-message>
+</div>
+<div class="p-4"></div>
+

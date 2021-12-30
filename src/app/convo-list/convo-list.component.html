@@ -1,0 +1,64 @@
+<ul class="no-padding list-group-flush overflow-hidden">
+  <li>
+    <div class="user-menu">
+
+      <div id="dropdown" class="dropdown-button valign-wrapper" data-activates="dropdown">
+         <img src="https://thumbs.dreamstime.com/b/male-avatar-icon-flat-style-male-user-icon-cartoon-man-avatar-hipster-vector-stock-91462914.jpg" alt="This is avatar" class="circle" width="50px">
+        <div class="row col-md-3">
+          <span class="rounded-circle valign user-login ">Duy </span>
+          <div class="dropdown">
+            <i class="material-icons" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              expand_more
+            </i>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <button class="dropdown-item">Signout</button>
+              <button class="dropdown-item">Switch</button>
+              <button class="dropdown-item">Edit profile</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row col-md-6">
+          <span class="rounded-circle valign user-login ">Noti - ({{notify.length}})</span>
+          <div class="dropdown">
+            <i class="material-icons" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              expand_more
+            </i>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <button *ngFor="let noti of notify" class="dropdown-item">{{noti}}</button>
+            </div>
+          </div>
+        </div>
+
+        </div>
+    </div>
+
+  </li>
+    <input id="search-parent" (input)="setSearchTerm($event.target.value)" type="text" class="form-control"
+           placeholder="Search"/>
+<!--    <span *ngIf="searchTerm !== ''" id="search-clear" (click)="clearSearch()"><i-->
+<!--      class="material-icons text-muted">close</i></span>-->
+  <div *ngIf="searchTerm === ''">
+    <li *ngFor="let convo of request.getConvosFromRequest()"
+        class="list-group-item{{ mobile ? ' convo-padded' : '' }}{{ selection.activeConvo === convo.id ? ' active' : '' }}"
+        (click)="selection.setActiveConvo(convo)" (click) = "btnclick(convo.id)">
+      <app-convo-single [convo]='convo'></app-convo-single>
+    </li>
+  </div>
+  <div *ngIf="searchTerm !== ''">
+    <li *ngIf="searchResults.length === 0" class="list-group-item">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span></div>
+      </div>
+    </li>
+    <li *ngIf="searchResults.length !== 0 && searchResults[0] === null" class="list-group-item text-center text-muted">
+      <small>No results</small></li>
+    <div *ngIf="searchResults.length !== 0 && searchResults[0] !== null">
+      <li *ngFor="let result of searchResults"
+          class="list-group-item{{ mobile ? ' convo-padded' : '' }}{{ selection.activeConvo === result.id ? ' active' : '' }}"
+          (click)="selection.setActiveConvo(result)" (click)="btnclick(result.id)">
+          <app-convo-single *ngIf="result !== null" [convo]='result'></app-convo-single>
+      </li>
+    </div>
+  </div>
+</ul>

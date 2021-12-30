@@ -1,0 +1,67 @@
+@import "../variables.scss";
+
+/*
+ * Source: Independently Scrollable Bootstrap Columns, by Aneesh Kulkarni
+ * https://codepen.io/aneekul/post/columnar-independence
+ */
+/* Set the row height to the viewport */
+.row-height{
+	height: 100vh;
+}
+
+/* Set up the columns with a 100% height, body color and overflow scroll */
+.scroll{
+	height: 100%;
+	overflow-y: scroll;
+}
+
+/* Remove the scrollbar from Chrome, Safari, Edge and IE */
+::-webkit-scrollbar {
+	width: 0px;
+	background: transparent;
+}
+
+* {
+	-ms-overflow-style: none !important;
+}
+/* END Independently Scrollable Bootstrap Columns */
+
+#mobile-navbar {
+	text-align: center;
+}
+
+.send-button {
+	//background-color: $primary;
+	//@if $primary-is-dark {
+	//	color: $light !important;
+	//} @else {
+	//	color: $dark !important;
+	//}
+  //background-color: lighten(#0277bd, 4%);
+  //border-radius: 50%;
+  //width: 50px;
+  //height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.input-field input {
+  border-color: #FFFFFF;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]){
+  border-bottom: 1px solid #FFFFFF;
+}
+
+fixed-bottom-md {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1030;
+}
+@media(min-width: map-get($grid-breakpoints, md)) {
+	fixed-bottom-md {
+		position: static;
+	}
+}

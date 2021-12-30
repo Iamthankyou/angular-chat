@@ -1,0 +1,57 @@
+@import "../../_variables.scss";
+
+.convo-padded {
+	padding-left: 15px;
+	padding-right: 15px;
+  background-color: $primary;
+}
+
+.list-group-item{
+  background: $primary;
+}
+
+.list-group-item.active {
+		background-color: $dark !important;
+}
+
+#search-parent{
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($dark, 0.25);
+  transition: all 0.2s;
+}
+
+// User avatar
+
+.user-menu{
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  min-height:65px;
+  height:65px;
+  background-color: darken(#0277bd, 3%);
+  color: white;
+  padding: 7px;
+}
+
+.user-menu img{
+  border-radius: 50%;
+}
+
+.user-menu .user-login{
+  margin-left:10px;
+}
+
+.user-menu img{
+  margin-left:1em;
+}
+
+.user-menu .dropdown-button{
+  align-content: center;
+  cursor: pointer;
+  cursor:hand;
+}
+
+#dropdown{
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,20 @@
+<!--<p>Hello</p>-->
+<div class="row">
+	<div class="col-2 align-self-center">
+		<img class="w-100" alt="Angular Logo" [src]="convo.safeImg">
+	</div>
+	<div class="no-padding col-10 align-self-center">
+<!--    <p>Hello</p>-->
+<!--		<span *ngIf="convo.emphasis !== null"><span class="badge badge-dark">{{ convo.emphasis }}</span><br /></span>-->
+		<strong class="d-block text-truncate">{{ convo.title }}</strong>
+
+
+    <div *ngIf="true" class="online-status">
+      <i class="tiny material-icons online">lens</i> online</div>
+
+<!--    <div ng-if="friend.online == false" class="online-status">-->
+<!--      <i class="tiny material-icons offline">lens</i> offline</-->
+<!--    -->
+		<small class="d-block text-truncate">{{ convo.subtitle }}</small>
+	</div>
+</div>
